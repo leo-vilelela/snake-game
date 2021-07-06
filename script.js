@@ -5,7 +5,10 @@ let snake = [];
 snake [0] = {
   x: 8 * box,
   y: 8 * box
+
+
 }
+
 
 let direction = "right";
 let food = { 
@@ -21,13 +24,21 @@ function criarBG() {
 function criarCobrinha() {
   for(i=0; i < snake.length; i++) {
     context.fillStyle = "green"
-    context.fillRect(snake[i].x, snake[i].y, box, box);
+    /*context.fillRect(snake[i].x, snake[i].y, box, box);*/
+    context.beginPath();
+  context.arc(snake[i].x, snake[i].y, box, box,Math.PI*2,true);
+  context.closePath();
+  context.fill();
   }  
 }
 
 function drawFood() {
-  context.fillStyle = "red";
-  context.fillRect(food.x, food.y, box, box);
+ context.fillStyle = "red";
+ /*context.fillRect(food.x, food.y, box, box);*/
+ context.beginPath();
+  context.arc(food.x, food.y, box, box,Math.PI*2,true);
+  context.closePath();
+  context.fill();
 }
 
 document.addEventListener('keydown', update);
@@ -50,9 +61,9 @@ function iniciarJogo() {
   }
 
   if(snake[0].x > 15 * box && direction == "right") snake[0].x = 0;
-  if(snake[0].x < 0 && direction == "left") snake[0].x = 16 * box;
+  if(snake[0].x < 0 && direction == "left") snake[0].x = 15 * box;
   if(snake[0].y > 15 * box && direction == "down") snake[0].y = 0;
-  if(snake[0].y < 0 && direction == "up") snake[0].y = 16 * box;
+  if(snake[0].y < 0 && direction == "up") snake[0].y = 15 * box;
 
   criarBG();
   criarCobrinha();
@@ -80,4 +91,4 @@ function iniciarJogo() {
   snake.unshift(newHead);
 }
 
-let jogo = setInterval(iniciarJogo, 100); 
+let jogo = setInterval(iniciarJogo, 100);

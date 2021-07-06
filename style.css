@@ -1,3 +1,6 @@
+:root{
+    --foo:"./img/strawberry";
+}
 body{
     height: 95vh;
     width: 95;
@@ -5,5 +8,15 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: rgb(44, 139, 44);
+    color: rgb(17, 22, 90);
 }
+h1{
+    margin-bottom: 5px;
+}
+
+footer{
+    margin-top: 10px;
+}
+ canvas{
+     border: 20px solid yellowgreen;
+ }
